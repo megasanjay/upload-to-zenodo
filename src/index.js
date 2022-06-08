@@ -52,15 +52,16 @@ const main = async () => {
     const COMMITER_EMAIL = core.getInput('committer_email');
     const COMMIT_MESSAGE = core.getInput('commit_message');
 
-    const UPDATE_METADATA_FILES = core.getInput('update_metadata_files');
+    const UPDATE_METADATA_FILES =
+      core.getInput('update_metadata_files') === 'true';
 
-    const CODEMETA_JSON = core.getInput('codemeta_json');
-    const CITATION_CFF = core.getInput('citation_cff');
-    const ZENODO_JSON = core.getInput('zenodo_json');
+    const CODEMETA_JSON = core.getInput('codemeta_json') === 'true';
+    const CITATION_CFF = core.getInput('citation_cff') === 'true';
+    const ZENODO_JSON = core.getInput('zenodo_json') === 'true';
 
-    const ZENODO_SANDBOX = core.getInput('zenodo_sandbox');
+    const ZENODO_SANDBOX = core.getInput('zenodo_sandbox') === 'true';
 
-    const ZENODO_PUBLISH = core.getInput('zenodo_publish');
+    const ZENODO_PUBLISH = core.getInput('zenodo_publish') === 'true';
 
     const context_object = await createContextObject(
       GITHUB_CONTEXT,

@@ -101574,7 +101574,7 @@ const Ue = Dn(), KE = kn, b0 = an.default, {
       Ue.setFailed("The zenodo_deposition_id is not set");
       return;
     }
-    const r = KE.context, p = Ue.getInput("committer_name"), o = Ue.getInput("committer_email"), d = Ue.getInput("commit_message"), l = Ue.getInput("update_metadata_files"), u = Ue.getInput("codemeta_json"), b = Ue.getInput("citation_cff"), v = Ue.getInput("zenodo_json"), m = Ue.getInput("zenodo_sandbox"), f = Ue.getInput("zenodo_publish"), w = await ZE(r, l, u, b, v, p, o, d, t, m), S = await XE(), F = S.metadataFolderPath, $ = S.releaseAssetsFolderPath;
+    const r = KE.context, p = Ue.getInput("committer_name"), o = Ue.getInput("committer_email"), d = Ue.getInput("commit_message"), l = Ue.getInput("update_metadata_files") === "true", u = Ue.getInput("codemeta_json") === "true", b = Ue.getInput("citation_cff") === "true", v = Ue.getInput("zenodo_json") === "true", m = Ue.getInput("zenodo_sandbox") === "true", f = Ue.getInput("zenodo_publish") === "true", w = await ZE(r, l, u, b, v, p, o, d, t, m), S = await XE(), F = S.metadataFolderPath, $ = S.releaseAssetsFolderPath;
     await JE(w, e, F), await QE(w, $);
     const J = await iT(w, i), C = await nT(w, J, i);
     w.doi = C.doi_url;

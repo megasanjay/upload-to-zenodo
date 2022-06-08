@@ -13,15 +13,15 @@ inputs:
     required: true
   zenodo_deposition_id:
     description: The Zenodo deposition ID.
-    required: true
+    required: true 
   zenodo_publish:
     description: Whether to publish the deposition.
     required: false
-    default: false
+    default: "false"
   zenodo_sandbox:
     description: Whether to upload to Zenodo sandbox or not.
     required: false
-    default: false
+    default: "false"
 
   committer_name:
     description: Username for commits
@@ -39,19 +39,19 @@ inputs:
   update_metadata_files:
     description: Whether to update the metadata files
     required: false
-    default: true
+    default: "true"
   codemeta_json:
     description: The JSON file containing the codemeta metadata
     required: false
-    default: false
+    default: "false"
   citation_cff:
     description: The YAML file containing the citation metadata
     required: false
-    default: false
+    default: "false"
   zenodo_json:
     description: The JSON file containing the Zenodo metadata
     required: false
-    default: false
+    default: "false"
 
 outputs:
   doi: 
