@@ -164,7 +164,7 @@ const main = async () => {
     core.info('Downloaded source code zipball from GitHub');
 
     // get list of files in the release assets folder
-    const files_in_release_assets_folder = await fs.readdir(
+    const files_in_release_assets_folder = fs.readdirSync(
       releaseAssetsFolderPath,
     );
 

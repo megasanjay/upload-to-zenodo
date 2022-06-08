@@ -101577,7 +101577,7 @@ const Ue = Dn(), KE = kn, b0 = an.default, XE = vi.default, {
       Ue.info(`Removing file ${k} from Zenodo draft deposition`), await oT(w, J, R, i);
     }
     l && (await aT(w, F), await iT(e, w, F)), Ue.info("Uploaded metadata files to GitHub"), await dT(w, $), Ue.info("Downloaded source code zipball from GitHub");
-    const T = await XE.readdir($);
+    const T = XE.readdirSync($);
     for (const I of T) {
       const R = b0.join($, I);
       Ue.info(`Preparing ${I} upload...`), await rT(w, J, i, q, I, R);
