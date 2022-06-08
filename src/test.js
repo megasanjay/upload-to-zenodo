@@ -52,7 +52,7 @@ const main = async () => {
       return;
     }
 
-    const ZENODO_DEPOSITION_ID = 5550844;
+    const ZENODO_DEPOSITION_ID = 6622359;
     if (!ZENODO_DEPOSITION_ID) {
       core.setFailed('The zenodo_deposition_id is not set');
       return;
