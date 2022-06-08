@@ -8,12 +8,20 @@
   "dateModified": "2022-06-07",
   "issueTracker": "https://github.com/megasanjay/upload-to-zenodo/issues",
   "name": "Upload to Zenodo",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A GitHub action to automatically push a release to Zenodo",
   "applicationCategory": "Scientific",
-  "keywords": ["GitHub"],
-  "programmingLanguage": ["JavaScript"],
-  "operatingSystem": ["Windows 11", "Big Sur (macOS 11)", "Ubuntu"],
+  "keywords": [
+    "GitHub"
+  ],
+  "programmingLanguage": [
+    "JavaScript"
+  ],
+  "operatingSystem": [
+    "Windows 11",
+    "Big Sur (macOS 11)",
+    "Ubuntu"
+  ],
   "author": [
     {
       "@type": "Person",
