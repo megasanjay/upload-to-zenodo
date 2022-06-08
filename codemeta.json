@@ -1,0 +1,37 @@
+{
+    "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+    "@type": "SoftwareSourceCode",
+    "license": "https://spdx.org/licenses/Apache-2.0",
+    "codeRepository": "https://github.com/megasanjay/upload-to-zenodo",
+    "dateCreated": "2022-06-07",
+    "datePublished": "2022-06-07",
+    "dateModified": "2022-06-07",
+    "issueTracker": "https://github.com/megasanjay/upload-to-zenodo/issues",
+    "name": "Upload to Zenodo",
+    "version": "1.0.0",
+    "description": "A GitHub action to automatically push a release to Zenodo",
+    "applicationCategory": "Scientific",
+    "keywords": [
+        "GitHub"
+    ],
+    "programmingLanguage": [
+        "JavaScript"
+    ],
+    "operatingSystem": [
+        "Windows 11",
+        "Big Sur (macOS 11)",
+        "Ubuntu"
+    ],
+    "author": [
+        {
+            "@type": "Person",
+            "givenName": "Sanjay",
+            "familyName": "Soundarajan",
+            "email": "ssoundarajan@calmi2.org",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "FAIR Data Innovations Hub"
+            }
+        }
+    ]
+}
