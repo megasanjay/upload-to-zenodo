@@ -8,7 +8,7 @@
   "dateModified": "2022-06-07",
   "issueTracker": "https://github.com/megasanjay/upload-to-zenodo/issues",
   "name": "Upload to Zenodo",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A GitHub action to automatically push a release to Zenodo",
   "applicationCategory": "Scientific",
   "keywords": [
@@ -34,5 +34,5 @@
       }
     }
   ],
-  "identifier": "https://doi.org/10.5281/zenodo.6622457"
+  "identifier": "https://doi.org/10.5281/zenodo.6622485"
 }
