@@ -1,6 +1,8 @@
 name: Zenodo upload
 author: Sanjay Soundarajan
 description: GitHub action to upload a release to Zenodo with the relevant metadata
+icon: upload-cloud
+color: blue
 
 inputs:
   github_token:
