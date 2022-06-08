@@ -22,8 +22,6 @@ Currently the following files and fields will be updated:
     * `.zenodo.json`:
         * `version`: The release version
 
-
-
 ## Inputs
 
 A list of all inputs to the action is as follows:
@@ -38,7 +36,7 @@ A list of all inputs to the action is as follows:
 
 `zenodo_sandbox` - **Optional** - Whether to use the Zenodo sandbox. Defaults to `false`.
 
-`committer_name` - **Optional** - The name of the committer. 
+`committer_name` - **Optional** - The name of the committer.
 
 `committer_email` - **Optional** - The email of the committer.
 
