@@ -81,7 +81,7 @@ jobs:
 
       - name: Upload to Zenodo
         id: release
-        uses: megasanjay/upload-to-zenodo@v1.3.0
+        uses: megasanjay/upload-to-zenodo@v1.4.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           zenodo_token: ${{ secrets.ZENODO_TOKEN }}
