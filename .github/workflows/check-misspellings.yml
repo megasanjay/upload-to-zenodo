@@ -14,6 +14,6 @@ jobs:
       - uses: sobolevn/misspell-fixer-action@master
       - uses: peter-evans/create-pull-request@main
         with:
-          token: ${{ secrets.BOT_ACTIONS }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "fix(typo): 🐛 typo fixes by misspell-fixer"
           title: "fix(typo): 🐛 typo fixes by misspell-fixer"

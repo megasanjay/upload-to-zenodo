@@ -1,8 +1,4 @@
 # This workflow warns and then closes issues and PRs that have had no activity for a specified amount of time.
-#
-# You can adjust the behavior by modifying this file.
-# For more information, see:
-# https://github.com/actions/stale
 name: Mark stale issues and pull requests
 
 on:
@@ -20,7 +16,7 @@ jobs:
     steps:
     - uses: actions/stale@v5
       with:
-        repo-token: ${{ secrets.BOT_ACTIONS }}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
         days-before-issue-stale: 30
         days-before-issue-close: 14
         stale-pr-message: 'Stale pull request'
