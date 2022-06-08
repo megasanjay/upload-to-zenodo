@@ -113,10 +113,6 @@ const createContextObject = async (
     context_object.custom_committer = true;
   }
 
-  if (commit_message !== 'chore: update <file-name> for Zenodo release') {
-    context_object.custom_committer = true;
-  }
-
   context_object.original_zenodo_deposition_id = zenodo_deposition_id;
 
   if (zenodo_sandbox) {
