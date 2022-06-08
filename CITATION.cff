@@ -1,19 +1,20 @@
-# This CITATION.cff file was generated with FAIRshare.
-# Visit https://fairdataihub.org/fairshare to learn more!
-
 abstract: A GitHub action to automatically push a release to Zenodo
 authors:
-- affiliation: FAIR Data Innovations Hub
-  email: ssoundarajan@calmi2.org
-  family-names: Soundarajan
-  given-names: Sanjay
+  - affiliation: FAIR Data Innovations Hub
+    email: ssoundarajan@calmi2.org
+    family-names: Soundarajan
+    given-names: Sanjay
 cff-version: 1.2.0
 date-released: '2022-06-07'
 keywords:
-- GitHub
+  - GitHub
 license: Apache-2.0
 message: If you use this software, please cite it as below.
 repository-code: https://github.com/megasanjay/upload-to-zenodo
 title: Upload to Zenodo
 type: software
-version: 1.0.0
+version: 1.0.8
+identifiers:
+  - description: DOI for this application's record on Zenodo
+    type: doi
+    value: https://doi.org/10.5281/zenodo.6622457
