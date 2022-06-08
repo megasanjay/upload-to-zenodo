@@ -1,1 +1,16 @@
-{"upload_type": "software", "title": "Upload to Zenodo", "publication_date": "2022-06-07", "creators": [{"name": "Soundarajan, Sanjay", "affiliation": "FAIR Data Innovations Hub"}], "description": "A GitHub action to automatically push a release to Zenodo", "access_right": "open", "license": "Apache-2.0", "keywords": ["GitHub"], "language": "eng"}
+{
+  "upload_type": "software",
+  "title": "Upload to Zenodo",
+  "publication_date": "2022-06-07",
+  "creators": [
+    {
+      "name": "Soundarajan, Sanjay",
+      "affiliation": "FAIR Data Innovations Hub"
+    }
+  ],
+  "description": "A GitHub action to automatically push a release to Zenodo",
+  "access_right": "open",
+  "license": "Apache-2.0",
+  "keywords": ["GitHub"],
+  "language": "eng"
+}
