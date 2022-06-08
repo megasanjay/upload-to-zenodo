@@ -15,20 +15,10 @@ const mime = require('mime-types');
 const createNewZenodoDepositionVersion = async (context, access_token) => {
   const deposition_id = context.original_zenodo_deposition_id;
 
-  const url = `${context.zenodo_url}/api/deposit/depositions/${deposition_id}/actions/newversion`;
-
-  core.info(url);
+  const url = `${context.zenodo_url}/api/deposit/depositions/${deposition_id}/actions/newversion?access_token=${access_token}`;
 
   try {
-    const config = {
-      method: 'post',
-      url,
-      headers: {
-        Authorization: `token ${access_token}`,
-      },
-    };
-
-    const response = await axios(config);
+    const response = await axios.post(url);
 
     if (response.status === 201) {
       const links = response.data.links;

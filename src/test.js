@@ -8,7 +8,7 @@ const {
   setupFolderEnvironment,
   createContextObject,
   downloadMetadataFiles,
-  downloadReleaseAssests,
+  // downloadReleaseAssests,
 } = require('./setup');
 
 const {
@@ -284,7 +284,7 @@ const main = async () => {
     );
 
     // download the release assets
-    await downloadReleaseAssests(context_object, releaseAssetsFolderPath);
+    // await downloadReleaseAssests(context_object, releaseAssetsFolderPath);
 
     // create a new version of the dataset on Zenodo
     // const deposition_id = 6617774;
