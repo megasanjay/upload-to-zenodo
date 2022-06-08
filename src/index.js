@@ -209,6 +209,10 @@ const main = async () => {
     core.setOutput('doi', context_object.doi);
     core.setOutput('version', context_object.tag_name);
 
+    core.info('Finished!');
+    core.info('Version: ' + context_object.tag_name);
+    core.info('DOI: ' + context_object.doi);
+
     /**
      * TODO: Update the README with the new badge
      * TODO: Figure out where to setup the mapping for the versions

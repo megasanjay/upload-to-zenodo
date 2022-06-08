@@ -272,6 +272,7 @@ const updateZenodoMetata = async (
 
     const response = await axios(config)
       .then(function (response) {
+        console.log(response);
         return response.data;
       })
       .catch(function (error) {
@@ -319,7 +320,7 @@ const publishZenodoDeposition = async (
 
     const response = await axios.post(url);
 
-    if (response.status === 200) {
+    if (response.status === 202) {
       core.info(`Published Zenodo deposition`);
 
       return Promise.resolve();

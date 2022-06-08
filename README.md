@@ -81,12 +81,12 @@ jobs:
 
       - name: Upload to Zenodo
         id: release
-        uses: megasanjay/upload-to-zenodo@v1.0.3
+        uses: megasanjay/upload-to-zenodo@v1.1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           zenodo_token: ${{ secrets.ZENODO_TOKEN }}
           zenodo_deposition_id: SOME_DEPOSITION_ID
-          zenodo_publish: false
+          zenodo_publish: true
           zenodo_sandbox: false
           commit_message: 'chore: update ${file_name} for Zenodo release'
           update_metadata_files: true
