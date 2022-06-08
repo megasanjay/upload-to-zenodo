@@ -1,0 +1,19 @@
+name: misspell-fixer-action
+
+on:
+  push:
+    branches: "**"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: sobolevn/misspell-fixer-action@master
+      - uses: peter-evans/create-pull-request@main
+        with:
+          token: ${{ secrets.BOT_ACTIONS }}
+          commit-message: "fix(typo): 🐛 typo fixes by misspell-fixer"
+          title: "fix(typo): 🐛 typo fixes by misspell-fixer"

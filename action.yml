@@ -1,0 +1,64 @@
+name: Zenodo upload
+author: Sanjay Soundarajan
+description: GitHub action to upload a release to Zenodo with the relevant metadata
+
+inputs:
+  github_token:
+    description: The GitHub token used to authenticated with GitHub.
+    required: false
+    default: ${{ github.token }}
+
+  zenodo_token:
+    description: The Zenodo token used to authenticated with Zenodo.
+    required: true
+  zenodo_deposition_id:
+    description: The Zenodo deposition ID.
+    required: true
+  zenodo_publish:
+    description: Whether to publish the deposition.
+    required: false
+    default: false
+  zenodo_sandbox:
+    description: Whether to upload to Zenodo sandbox or not.
+    required: false
+    default: false
+
+  committer_name:
+    description: Username for commits
+    required: false
+    default: ""
+  committer_email:
+    description: Email address for commits
+    required: false
+    default: ""
+  commit_message:
+    description: Template for commit messages
+    required: false
+    default: "chore: update ${file_name} for Zenodo release"
+  
+  update_metadata_files:
+    description: Whether to update the metadata files
+    required: false
+    default: true
+  codemeta_json:
+    description: The JSON file containing the codemeta metadata
+    required: false
+    default: false
+  citation_cff:
+    description: The YAML file containing the citation metadata
+    required: false
+    default: false
+  zenodo_json:
+    description: The JSON file containing the Zenodo metadata
+    required: false
+    default: false
+
+outputs:
+  doi: 
+    description: 'The Zenodo DOI'
+  version: 
+    description: 'The version of the release'
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
