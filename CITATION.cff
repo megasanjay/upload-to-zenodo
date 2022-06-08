@@ -13,8 +13,8 @@ message: If you use this software, please cite it as below.
 repository-code: https://github.com/megasanjay/upload-to-zenodo
 title: Upload to Zenodo
 type: software
-version: 1.0.8
+version: 1.0.9
 identifiers:
   - description: DOI for this application's record on Zenodo
     type: doi
-    value: https://doi.org/10.5281/zenodo.6622457
+    value: https://doi.org/10.5281/zenodo.6622485
