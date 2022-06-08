@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 const path = require('path');
+const fs = require('fs');
 
 const {
   setupFolderEnvironment,
@@ -163,7 +164,7 @@ const main = async () => {
     core.info('Downloaded source code zipball from GitHub');
 
     // get list of files in the release assets folder
-    const files_in_release_assets_folder = await context_object.fs.readdir(
+    const files_in_release_assets_folder = await fs.readdir(
       releaseAssetsFolderPath,
     );
 
