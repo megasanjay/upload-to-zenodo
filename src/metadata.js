@@ -3,6 +3,7 @@ const core = require('@actions/core');
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
+const dayjs = require('dayjs');
 
 const { uploadFileToGitHub } = require('./github-functions');
 
@@ -28,6 +29,7 @@ const updateJSON = async (config, file_path, file_name) => {
 
     if (file_name === 'codemeta.json') {
       json_object.identifier = config.doi;
+      json_object.dateModified = dayjs().format('YYYY-MM-DD');
     }
 
     const updated_file_content = JSON.stringify(json_object, null, 2);
@@ -78,6 +80,8 @@ const updateYAML = async (config, file_path) => {
     } else {
       yaml_object.identifiers[0].value = config.doi;
     }
+
+    yaml_object['date-released'] = dayjs().format('YYYY-MM-DD');
 
     const updated_file_content = yaml.dump(yaml_object);
 
