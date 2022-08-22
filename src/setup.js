@@ -31,6 +31,7 @@ const createContextObject = async (
   codemeta_json,
   citation_cff,
   zenodo_json,
+  docs_compatibility_json,
   committer_name,
   committer_email,
   commit_message,
@@ -99,6 +100,7 @@ const createContextObject = async (
   context_object.codemeta_json = codemeta_json;
   context_object.citation_cff = citation_cff;
   context_object.zenodo_json = zenodo_json;
+  context_object.docs_compatibility_json = docs_compatibility_json;
 
   context_object.custom_committer = false;
   context_object.committer_name = committer_name;
@@ -194,6 +196,11 @@ const downloadMetadataFiles = async (
     required_files.push('.zenodo.json');
   }
 
+  if (config.docs_compatibility_json) {
+    required_files.push('docs.compatibility.json');
+    required_files.push('versions.json');
+  }
+
   for (const file of required_files) {
     const file_path = path.join(metadata_folder_path, file);
 
@@ -223,7 +230,7 @@ const downloadMetadataFiles = async (
  *
  * @returns {Promise} - The promise for the download
  */
-const downloadReleaseAssests = async (config, release_assets_folder_path) => {
+const downloadReleaseAssets = async (config, release_assets_folder_path) => {
   const release_assets = config.assets;
 
   for (const asset of release_assets) {
@@ -248,5 +255,5 @@ module.exports = {
   setupFolderEnvironment,
   createContextObject,
   downloadMetadataFiles,
-  downloadReleaseAssests,
+  downloadReleaseAssets,
 };

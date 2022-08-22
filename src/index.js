@@ -8,7 +8,7 @@ const {
   setupFolderEnvironment,
   createContextObject,
   downloadMetadataFiles,
-  downloadReleaseAssests,
+  downloadReleaseAssets,
 } = require('./setup');
 
 const {
@@ -20,7 +20,7 @@ const {
   createNewZenodoDepositionVersion,
   getZenodoDeposition,
   uploadFileToZenodo,
-  updateZenodoMetata,
+  updateZenodoMetadata,
   publishZenodoDeposition,
   removeFileFromZenodoDeposition,
 } = require('./zenodo');
@@ -49,8 +49,8 @@ const main = async () => {
 
     const GITHUB_CONTEXT = github.context;
 
-    const COMMITER_NAME = core.getInput('committer_name');
-    const COMMITER_EMAIL = core.getInput('committer_email');
+    const COMMITTER_NAME = core.getInput('committer_name');
+    const COMMITTER_EMAIL = core.getInput('committer_email');
     const COMMIT_MESSAGE = core.getInput('commit_message');
 
     const UPDATE_METADATA_FILES =
@@ -59,6 +59,8 @@ const main = async () => {
     const CODEMETA_JSON = core.getInput('codemeta_json') === 'true';
     const CITATION_CFF = core.getInput('citation_cff') === 'true';
     const ZENODO_JSON = core.getInput('zenodo_json') === 'true';
+    const DOCS_COMPATIBILITY_JSON =
+      core.getInput('docs_compatibility_json') === 'true';
 
     const ZENODO_SANDBOX = core.getInput('zenodo_sandbox') === 'true';
 
@@ -70,8 +72,9 @@ const main = async () => {
       CODEMETA_JSON,
       CITATION_CFF,
       ZENODO_JSON,
-      COMMITER_NAME,
-      COMMITER_EMAIL,
+      DOCS_COMPATIBILITY_JSON,
+      COMMITTER_NAME,
+      COMMITTER_EMAIL,
       COMMIT_MESSAGE,
       ZENODO_DEPOSITION_ID,
       ZENODO_SANDBOX,
@@ -90,7 +93,7 @@ const main = async () => {
     );
 
     // download the release assets
-    await downloadReleaseAssests(context_object, releaseAssetsFolderPath);
+    await downloadReleaseAssets(context_object, releaseAssetsFolderPath);
 
     // create a new version of the dataset on Zenodo
     const deposition_id = await createNewZenodoDepositionVersion(
@@ -130,7 +133,7 @@ const main = async () => {
       /**
        * Update the metadata files for the draft.
        *
-       * Currently this will be changing the following fiels:
+       * Currently this will be changing the following fields:
        * - `identifier` and `version` in the codemeta.json file.
        * -`identifier` and `version` in the citation.cff file.
        * * Currently assuming that the zenodo doi is in the first
@@ -188,7 +191,7 @@ const main = async () => {
     if (ZENODO_JSON) {
       const file_path = path.join(metadataFolderPath, '.zenodo.json');
 
-      await updateZenodoMetata(
+      await updateZenodoMetadata(
         context_object,
         deposition_id,
         file_path,

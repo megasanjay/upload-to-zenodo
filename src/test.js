@@ -8,7 +8,7 @@ const {
   setupFolderEnvironment,
   createContextObject,
   downloadMetadataFiles,
-  // downloadReleaseAssests,
+  // downloadReleaseAssets,
 } = require('./setup');
 
 const {
@@ -20,7 +20,7 @@ const {
   createNewZenodoDepositionVersion,
   getZenodoDeposition,
   uploadFileToZenodo,
-  updateZenodoMetata,
+  updateZenodoMetadata,
   // publishZenodoDeposition,
   removeFileFromZenodoDeposition,
 } = require('./zenodo');
@@ -248,8 +248,8 @@ const main = async () => {
       },
     };
 
-    const COMMITER_NAME = '';
-    const COMMITER_EMAIL = '';
+    const COMMITTER_NAME = '';
+    const COMMITTER_EMAIL = '';
     const COMMIT_MESSAGE = 'chore: update ${file_name} for Zenodo release';
 
     const UPDATE_METADATA_FILES = true;
@@ -265,8 +265,8 @@ const main = async () => {
       CODEMETA_JSON,
       CITATION_CFF,
       ZENODO_JSON,
-      COMMITER_NAME,
-      COMMITER_EMAIL,
+      COMMITTER_NAME,
+      COMMITTER_EMAIL,
       COMMIT_MESSAGE,
       ZENODO_DEPOSITION_ID,
       ZENODO_SANDBOX,
@@ -284,7 +284,7 @@ const main = async () => {
     );
 
     // download the release assets
-    // await downloadReleaseAssests(context_object, releaseAssetsFolderPath);
+    // await downloadReleaseAssets(context_object, releaseAssetsFolderPath);
 
     // create a new version of the dataset on Zenodo
     // const deposition_id = 6617774;
@@ -328,7 +328,7 @@ const main = async () => {
       /**
        * Update the metadata files for the draft.
        *
-       * Currently this will be changing the following fiels:
+       * Currently this will be changing the following fields:
        * - `identifier` and `version` in the codemeta.json file.
        * -`identifier` and `version` in the citation.cff file.
        * * Currently assuming that the zenodo doi is in the first
@@ -386,7 +386,7 @@ const main = async () => {
     if (ZENODO_JSON) {
       const file_path = path.join(metadataFolderPath, '.zenodo.json');
 
-      await updateZenodoMetata(
+      await updateZenodoMetadata(
         context_object,
         deposition_id,
         file_path,

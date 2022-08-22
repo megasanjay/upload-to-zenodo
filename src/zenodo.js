@@ -8,7 +8,7 @@ const mime = require('mime-types');
  * Create a new version of a deposition in Zenodo
  *
  * @param {Object} context - The context object
- * @param {String} access_token - The access token to use for the zendodo API
+ * @param {String} access_token - The access token to use for the zenodo API
  *
  * @returns {String} - The  Zenodo deposition ID and the Zenodo token
  */
@@ -48,7 +48,7 @@ const createNewZenodoDepositionVersion = async (context, access_token) => {
  *
  * @param {Object} context - The context object
  * @param {String} deposition_id - The Zenodo deposition ID
- * @param {String} access_token - The access token to use for the zendodo API
+ * @param {String} access_token - The access token to use for the zenodo API
  *
  * @returns {Object} - The Zenodo deposition data
  */
@@ -110,7 +110,7 @@ const deleteZenodoDeposition = async (context, deposition_id, access_token) => {
  *
  * @param {Object} context - The context object
  * @param {String} deposition_id - The Zenodo deposition ID
- * @param {String} access_token - The access token to use for the zendodo API
+ * @param {String} access_token - The access token to use for the zenodo API
  * @param {String} bucket_url - The URL of the bucket to upload the file to
  * @param {String} file_name - The name of the file to upload
  * @param {String} file_path - The path to the file to upload
@@ -202,7 +202,7 @@ const uploadFileToZenodo = async (
  * @param {Object} context - The context object
  * @param {String} deposition_id - The Zenodo deposition ID
  * @param {String} file_id - The Zenodo file ID
- * @param {String} access_token - The access token to use for the zendodo API
+ * @param {String} access_token - The access token to use for the zenodo API
  *
  * @returns {Promise} - A promise that resolves when the file is removed
  */
@@ -240,11 +240,11 @@ const removeFileFromZenodoDeposition = async (
  * @param {Object} context - The context object
  * @param {String} deposition_id - The Zenodo deposition ID
  * @param {String} metadata_file_path - The path to the metadata file
- * @param {String} access_token - The access token to use for the zendodo API
+ * @param {String} access_token - The access token to use for the zenodo API
  *
  * @returns {Promise} - A promise that resolves when the metadata is added
  */
-const updateZenodoMetata = async (
+const updateZenodoMetadata = async (
   context,
   deposition_id,
   metadata_file_path,
@@ -306,7 +306,7 @@ const updateZenodoMetata = async (
  *
  * @param {Object} context - The context object
  * @param {String} deposition_id - The Zenodo deposition ID
- * @param {String} access_token - The access token to use for the zendodo API
+ * @param {String} access_token - The access token to use for the zenodo API
  *
  * @returns {Promise} - A promise that resolves when the deposition is published
  */
@@ -341,7 +341,7 @@ module.exports = {
   getZenodoDeposition,
   uploadFileToZenodo,
   deleteZenodoDeposition,
-  updateZenodoMetata,
+  updateZenodoMetadata,
   publishZenodoDeposition,
   removeFileFromZenodoDeposition,
 };

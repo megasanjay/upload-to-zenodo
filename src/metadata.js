@@ -45,6 +45,55 @@ const updateJSON = async (config, file_path, file_name) => {
 };
 
 /**
+ * Updates the docs.compatibility file for Docusaurus
+ *
+ * @param {Object} config - The configuration object
+ * @param {String} file_path - The path to the `docs.compatibility.json` file to update
+ * @param {String} versions_file_path - The path to the `versions.json` file
+ *
+ * @returns {Promise} - A promise that resolves if the file was updated
+ */
+const updateDocsCompatibility = async (
+  config,
+  file_path,
+  versions_file_path,
+) => {
+  try {
+    const version = config.tag_name;
+
+    core.info(`Updating ${file_path}`);
+
+    const file_content = await fs.promises.readFile(file_path, 'utf8');
+    const json_object = JSON.parse(file_content);
+
+    // get the versions array
+    const versions_file_content = await fs.promises.readFile(
+      versions_file_path,
+      'utf8',
+    );
+    const versions_json_object = JSON.parse(versions_file_content);
+
+    // Pick the latest docs version for the compatibility entry
+    const new_entry = {
+      docsVersion: version,
+      appVersion: versions_json_object[0],
+    };
+
+    json_object.push(new_entry);
+
+    const updated_file_content = JSON.stringify(json_object, null, 2);
+
+    await fs.promises.writeFile(file_path, updated_file_content, 'utf8');
+
+    core.info(`Updated ${file_path}`);
+
+    return Promise.resolve();
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+
+/**
  * Updates the YAML file at the given path
  *
  * @param {Object} config - The configuration object
@@ -117,12 +166,22 @@ const updateMetadataFiles = async (config, metadata_folder_path) => {
     required_files.push('.zenodo.json');
   }
 
+  if (config.docs_compatibility_json) {
+    required_files.push('docs.compatibility.json');
+  }
+
   for (const file of required_files) {
     let type = 'json';
+
     const file_path = path.join(metadata_folder_path, file);
+    const versions_file_path = path.join(metadata_folder_path, 'versions.json');
 
     if (file === 'CITATION.cff') {
       type = 'yaml';
+    }
+
+    if (file === 'docs.compatibility.json') {
+      type = 'docs.compatibility';
     }
 
     if (type === 'json') {
@@ -139,6 +198,17 @@ const updateMetadataFiles = async (config, metadata_folder_path) => {
     if (type === 'yaml') {
       try {
         await updateYAML(config, file_path);
+      } catch (error) {
+        core.setFailed(
+          `The ${file} file could not be updated. ${error.message}`,
+        );
+        process.exit(1);
+      }
+    }
+
+    if (type === 'docs.compatibility') {
+      try {
+        await updateDocsCompatibility(config, file_path, versions_file_path);
       } catch (error) {
         core.setFailed(
           `The ${file} file could not be updated. ${error.message}`,
@@ -181,6 +251,13 @@ const uploadMetadataFilesToGitHub = async (
 
   if (config.zenodo_json) {
     const file_name = '.zenodo.json';
+    const file_path = path.join(metadata_folder_path, file_name);
+
+    await uploadFileToGitHub(github_token, config, file_name, file_path);
+  }
+
+  if (config.docs_compatibility_json) {
+    const file_name = 'docs.compatibility.json';
     const file_path = path.join(metadata_folder_path, file_name);
 
     await uploadFileToGitHub(github_token, config, file_name, file_path);

@@ -52,6 +52,10 @@ inputs:
     description: The JSON file containing the Zenodo metadata
     required: false
     default: "false"
+  docs_compatibility_json:
+    description: The JSON file containing the compatibility documentation
+    required: false
+    default: "false"
 
 outputs:
   doi: 

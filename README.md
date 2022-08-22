@@ -2,7 +2,7 @@
 
 This is a Github action to update your `codemeta.json`, `CITATION.cff` and `.zenodo.json` files with the release information and then upload your release to Zenodo.
 
-This action uses the **tag name** of the release to update the `version` field in the metadata files. Be sure to use the correct tag name. Within your tag name a valid semver version should be present.
+This action uses the **tag name** of the release to update the `version` field in the metadata files. Be sure to use the correct tag name. Within your tag name a valid `semver` version should be present.
 
 When update metadata files are added to your repository, the action will automatically send the new metadata files in its release. This will also mean that your Github release will not contain the updated metadata files. To avoid this, you can set the `update_metadata_files` option to `false` and add a `.zenodo.json` file.
 
@@ -21,6 +21,11 @@ Currently the following files and fields will be updated:
 
     * `.zenodo.json`:
         * `version`: The release version
+
+    * `docs.compatibility.json`
+        * A new entry will be added in this file. This entry is meant for versioned Docusaurus projects
+            * `docsVersion` - The new docs version
+            * `appVersion` - The latest app version
 
 ## Inputs
 
@@ -49,6 +54,8 @@ A list of all inputs to the action is as follows:
 `citation_cff` - **Optional** - Whether a `CITATION.cff` file exists in the repository and needs to be updated for the new release. Defaults to `false`.
 
 `zenodo_json` - **Optional** - Whether a `.zenodo.json` file exists in the repository and needs to be updated for the new release. Defaults to `false`.
+
+`docs_compatibility_json` - **Optional** - Whether a `docs.compatibility.json` file exists in the repository and needs to be updated for the new release. Defaults to `false`.
 
 ## Outputs
 
@@ -81,7 +88,7 @@ jobs:
 
       - name: Upload to Zenodo
         id: release
-        uses: megasanjay/upload-to-zenodo@v1.6.1
+        uses: megasanjay/upload-to-zenodo@v2.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           zenodo_token: ${{ secrets.ZENODO_TOKEN }}
