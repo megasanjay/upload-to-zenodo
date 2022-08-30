@@ -5,7 +5,7 @@ authors:
     family-names: Soundarajan
     given-names: Sanjay
 cff-version: 1.2.0
-date-released: '2022-08-22'
+date-released: '2022-08-30'
 keywords:
   - GitHub
 license: Apache-2.0
@@ -13,8 +13,8 @@ message: If you use this software, please cite it as below.
 repository-code: https://github.com/megasanjay/upload-to-zenodo
 title: Upload to Zenodo
 type: software
-version: 2.0.0
+version: 2.0.1
 identifiers:
   - description: DOI for this application's record on Zenodo
     type: doi
-    value: https://doi.org/10.5281/zenodo.7015739
+    value: https://doi.org/10.5281/zenodo.7036310
