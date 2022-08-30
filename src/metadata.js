@@ -32,6 +32,10 @@ const updateJSON = async (config, file_path, file_name) => {
       json_object.dateModified = dayjs().format('YYYY-MM-DD');
     }
 
+    if (file_name === '.zenodo.json') {
+      json_object.publication_date = dayjs().format('YYYY-MM-DD');
+    }
+
     const updated_file_content = JSON.stringify(json_object, null, 2);
 
     await fs.promises.writeFile(file_path, updated_file_content, 'utf8');
