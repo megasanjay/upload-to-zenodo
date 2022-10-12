@@ -11,9 +11,7 @@
   "description": "A GitHub action to automatically push a release to Zenodo",
   "access_right": "open",
   "license": "Apache-2.0",
-  "keywords": [
-    "GitHub"
-  ],
+  "keywords": ["GitHub"],
   "language": "eng",
   "version": "2.0.1"
 }
