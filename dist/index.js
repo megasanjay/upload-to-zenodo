@@ -34157,7 +34157,7 @@ function print() { __p += __j.call(arguments, '') }
       },
       xn = Y6();
     Wi ? (((Wi.exports = xn)._ = xn), (Rp._ = xn)) : (na._ = xn);
-  }.call(de));
+  }).call(de);
 })(g1, g1.exports);
 const Rt = wo.exports,
   Fa = Pn(),
