@@ -134,25 +134,11 @@ const uploadFileToZenodo = async (
 
     const url = `${bucket_url}/${file_name}`;
 
-    let content_type = mime.contentType(file_name)
-      ? mime.contentType(file_name)
-      : 'text/plain';
-
-    if (content_type.includes('application/json')) {
-      /**
-       * zenodo declines json uploads with a 400 - BAD REQUEST,
-       * avoiding error by setting content type to plain text
-       *
-       * @see https://github.com/zenodraft/zenodraft/blob/main/src/lib/file/add.ts#L15-L18
-       * */
-      content_type = 'text/plain';
-    }
-
     let content_length = fs.statSync(file_path).size.toString();
 
     const headers = {
       Authorization: `token  ${access_token}`,
-      'Content-Type': content_type,
+      'Content-Type': 'application/octet-stream',
       'Content-Length': content_length,
     };
 
