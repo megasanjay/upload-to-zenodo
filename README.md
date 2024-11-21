@@ -1,14 +1,14 @@
 # Upload a GitHub release to Zenodo
 
-This is a Github action to update your `codemeta.json`, `CITATION.cff` and `.zenodo.json` files with the release information and then upload your release to Zenodo.
+This is a Github action to update your `codemeta.json`, `CITATION.cff`, and `.zenodo.json` files with the release information and then upload your release to Zenodo.
 
-This action uses the **tag name** of the release to update the `version` field in the metadata files. Be sure to use the correct tag name. Within your tag name a valid `semver` version should be present.
+This action uses the **tag name** of the release to update the `version` field in the metadata files. Be sure to use the correct tag name. Within your tag name, a valid `semver` version should be present.
 
-When update metadata files are added to your repository, the action will automatically send the new metadata files in its release. This will also mean that your Github release will not contain the updated metadata files. To avoid this, you can set the `update_metadata_files` option to `false` and add a `.zenodo.json` file.
+When updated metadata files are added to your repository, the action will automatically send the new metadata files in its release. This will also mean that your GitHub release will not contain the updated metadata files. To avoid this, you can set the `update_metadata_files` option to `false` and add a `.zenodo.json` file.
 
-Remember to remove the webhook from your repository before using this action. Otherwise, you will have two releases on Zenodo for every release on Github.
+Remember to remove the webhook from your repository before using this action. Otherwise, you will have two releases on Zenodo for every release on GitHub.
 
-Currently the following files and fields will be updated:
+Currently, the following files and fields will be updated:
 
     * `codemeta.json`:
         * `version`: The release version
@@ -17,13 +17,13 @@ Currently the following files and fields will be updated:
     * `CITATION.cff`:
         * `version`: The release version
         * `identifiers`: The release identifier (Zenodo version specific doi).
-        This action currently assumes your old zenodo doi is the first item in the list.
+        This action assumes your old zenodo doi is the first item in the list.
 
     * `.zenodo.json`:
         * `version`: The release version
 
     * `docs.compatibility.json`
-        * A new entry will be added in this file. This entry is meant for versioned Docusaurus projects
+        * A new entry will be added to this file. This entry is meant for versioned Docusaurus projects
             * `docsVersion` - The new docs version
             * `appVersion` - The latest app version
 
@@ -80,7 +80,7 @@ jobs:
     name: A job to update metadata and push a release to Zenodo
 
     steps:
-      # This step is not needed at the moment but might decide to add on more steps in the future
+      # This step is not needed at the moment but I might decide to add more steps in the future
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -118,3 +118,7 @@ git commit -a -m "chore: release action v1.2.3"
 git tag -a -m "Action v1.2.3 release" v1.2.3
 git push --follow-tags
 ```
+
+## PS
+
+I originally built this to handle auto-deploying our Docusaurus documentation sites to Zenodo. This was my first GitHub action so I'm hoping to improve this soon. We have since created another tool that you might be interested in for deploying your research software to Zenodo. [Codefair](https://codefair.io) is a free and open source GitHub app that acts as your personal assistant when it comes to making your research software reusable and especially complying with the Findable, Accessible, Interoperable, Reusable (FAIR) Principles for Research Software (FAIR4RS Principles)
