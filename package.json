@@ -43,6 +43,6 @@
     "jest": "28.1.3",
     "prettier": "2.7.1",
     "rollup-plugin-esbuild": "4.9.3",
-    "rollup-plugin-terser": "7.0.2"
+    "@rollup/plugin-terser": "0.1.0"
   }
 }
